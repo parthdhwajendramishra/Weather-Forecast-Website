@@ -3,7 +3,7 @@ const path=require('path')
 const hbs=require('hbs')
 const weather=require('./utils/weather.js')
 
-
+const port=process.env.PORT || 3000
 const app=express()
 
 //Define paths for express config
@@ -102,4 +102,4 @@ app.get('*',(req,res)=>{
 
 
 
-app.listen(3000)
+app.listen(port)
