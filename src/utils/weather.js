@@ -6,7 +6,7 @@ const geocode=(address,callback)=>{
 
     if(error)
     {
-        callback('Nikal laude pehli fursat mai nikal koi network nahi hai yahan',undefined) 
+        callback('Nikal pehli fursat mai nikal koi network nahi hai yahan',undefined) 
     }
     else if(body.features.length===0)
     {
@@ -32,7 +32,7 @@ const forecast=(latitude,longitude,callback)=>{
 
     if(error)
     {
-        callback('Nikal laude pehli fursat mai nikal koi network nahi hai yahan',undefined) 
+        callback('Nikal pehli fursat mai nikal koi network nahi hai yahan',undefined) 
     }
     else if(body.error)
     {
@@ -42,7 +42,19 @@ const forecast=(latitude,longitude,callback)=>{
     {
         callback(undefined,{
             weather:body.current.weather_descriptions[0],
-            temperature:body.current.temperature
+            temperature:body.current.temperature,
+            uvindex:body.current.uv_index,
+            visibility:body.current.visibility,
+            precipitation:body.current.precip,
+            humidity:body.current.humidity,
+            cloudcover:body.current.cloudcover,
+            windspeed:body.current.wind_speed,
+            winddirection:body.current.wind_dir,
+            
+            region:body.location.region,
+            country:body.location.country,
+            timezoneid:body.location.timezone_id,
+            localtime:body.location.localtime
 
         })
     }

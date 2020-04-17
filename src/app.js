@@ -73,7 +73,19 @@ weather.geocode(req.query.address,(error,{latitude,longitude,location}={})=>
         return res.send({
             Weather:data.weather,
             Temperature:data.temperature,
-            address:req.query.address
+            address:req.query.address,
+            uvindex:data.uvindex,
+            visibility:data.visibility,
+            precipitation:data.precipitation,
+            humidity:data.humidity,
+            cloudcover:data.cloudcover,
+            windspeed:data.windspeed,
+            winddirection:data.winddirection,
+
+            region:data.region,
+            country:data.country,
+            timezoneid:data.timezoneid,
+            localtime:data.localtime
             })
 
         })
@@ -99,7 +111,5 @@ app.get('*',(req,res)=>{
         
     })
 })
-
-
 
 app.listen(port)
